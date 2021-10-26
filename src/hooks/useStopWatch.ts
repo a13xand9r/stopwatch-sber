@@ -1,13 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
+import { actions } from '../store/store'
+import { useStore } from './useStore'
 
 
 export const useStopWatch = () => {
-    const [isGoing, setIsGoing] = useState(false)
+    // const [isGoing, setIsGoing] = useState(false)
 
-    const [ms, setms] = useState(0)
-    const [s, sets] = useState(0)
-    const [m, setm] = useState(0)
-    const [h, seth] = useState(0)
+    // const [ms, setms] = useState(0)
+    // const [s, sets] = useState(0)
+    // const [m, setm] = useState(0)
+    // const [h, seth] = useState(0)
+
+    const [{ms, s, m, h, isGoing}, dispatch] = useStore()
 
     const interval = useRef<NodeJS.Timeout>()
     const msRef = useRef(0)
@@ -25,27 +29,24 @@ export const useStopWatch = () => {
         if (isGoing){
             interval.current = setInterval(() => {
                 if (msRef.current < 99) {
-                    setms(prev => prev + 1)
+                    dispatch(actions.setms(msRef.current + 1))
                 } else {
-                    setms(0)
-                    sets(prev => prev + 1)
+                    dispatch(actions.setms(0))
+                    dispatch(actions.sets(sRef.current + 1))
                 }
             }, 10)
         }
     }, [isGoing])
 
     const startStopWatch = () => {
-        setIsGoing(true)
+        dispatch(actions.setIsGoing(true))
     }
     const pauseStopWatch = () => {
-        setIsGoing(false)
+        dispatch(actions.setIsGoing(false))
     }
     const resetStopWatch = () => {
-        setIsGoing(false)
-        setms(0)
-        sets(0)
-        setm(0)
-        seth(0)
+        dispatch(actions.setIsGoing(false))
+        dispatch(actions.clearTimer())
     }
 
     return {

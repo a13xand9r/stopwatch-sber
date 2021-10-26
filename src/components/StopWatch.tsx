@@ -1,6 +1,7 @@
 import { Body1, Button } from '@sberdevices/plasma-ui'
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
+import { useAssistant } from '../hooks/useAssistant'
 import { useStopWatch } from '../hooks/useStopWatch'
 
 const FlexContainer = styled.div`
@@ -26,12 +27,15 @@ const StopWatchContainer = styled.div`
     margin: 5rem auto;
     text-align: center;
     @media (max-width: 650px) {
-        width: 350px;
+        width: 300px;
     }
 `
 
 const StyledButton = styled(Button)`
     width: 10rem;
+    @media (max-width: 650px) {
+        width: 8rem;
+    }
 `
 
 export const StopWatch = React.memo(() => {
@@ -43,8 +47,8 @@ export const StopWatch = React.memo(() => {
         <StopWatchContainer>
             <Body1 style={{fontSize: '2.2rem'}} >
                 <FlexContainer>
-                    <TimeContainer>{h}</TimeContainer>
-                    <TimeContainer>{m}</TimeContainer>
+                    <TimeContainer>{h > 10 ? '' : '0'}{h}</TimeContainer>
+                    <TimeContainer>{m > 10 ? '' : '0'}{m}</TimeContainer>
                     <TimeContainer>{s > 10 ? '' : '0'}{s}</TimeContainer>
                     <TimeContainer>{ms > 10 ? '' : '0'}{ms}</TimeContainer>
                 </FlexContainer>

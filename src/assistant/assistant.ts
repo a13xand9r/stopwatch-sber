@@ -6,7 +6,7 @@ export const initializeAssistant = (getState: () => any) => {
   if (process.env.NODE_ENV === 'development') {
     return createSmartappDebugger({
       token: process.env.REACT_APP_ASSISTANT_TOKEN ?? '',
-      initPhrase: 'Запусти школьное расписание',
+      initPhrase: 'Запусти мой секундомер',
       getState
     })
   }
