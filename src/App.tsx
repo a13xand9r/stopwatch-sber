@@ -1,4 +1,4 @@
-import { createAssistant } from '@sberdevices/assistant-client'
+// import { createAssistant } from '@sberdevices/assistant-client'
 import { Button, Container, Headline1 } from '@sberdevices/plasma-ui'
 
 import { useEffect, useRef, useState } from 'react'

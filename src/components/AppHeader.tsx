@@ -5,7 +5,7 @@ export const AppHeader = () => {
   return (
     <Header
       back={false}
-      title={'Canvas App'}
+      title={'Мой секундомер'}
     />
   )
 }

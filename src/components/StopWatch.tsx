@@ -1,11 +1,12 @@
 import { Body1, Button } from '@sberdevices/plasma-ui'
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
+import { useStopWatch } from '../hooks/useStopWatch'
 
 const FlexContainer = styled.div`
     display: flex;
     justify-content: space-around;
-    width: 70%;
+    /* width: 35rem; */
     margin: auto;
     margin-bottom: 3rem;
 `
@@ -20,56 +21,26 @@ const TimeContainer = styled.div`
     height: 5rem;
 `
 
+const StopWatchContainer = styled.div`
+    width: 500px;
+    margin: 5rem auto;
+    text-align: center;
+    @media (max-width: 650px) {
+        width: 350px;
+    }
+`
+
+const StyledButton = styled(Button)`
+    width: 10rem;
+`
+
 export const StopWatch = React.memo(() => {
 
-    const [isGoing, setIsGoing] = useState(false)
-
-    const [ms, setms] = useState(0)
-    const [s, sets] = useState(0)
-    const [m, setm] = useState(0)
-    const [h, seth] = useState(0)
-
-    const interval = useRef<NodeJS.Timeout>()
-    const msRef = useRef(0)
-    const sRef = useRef(0)
-    const mRef = useRef(0)
-    const hRef = useRef(0)
-
-    msRef.current = ms
-    sRef.current = s
-    mRef.current = m
-    hRef.current = h
-
-    useEffect(() => {
-        interval.current && clearInterval(interval.current)
-        if (isGoing){
-            interval.current = setInterval(() => {
-                if (msRef.current < 99) {
-                    setms(prev => prev + 1)
-                } else {
-                    setms(0)
-                    sets(prev => prev + 1)
-                }
-            }, 10)
-        }
-    }, [isGoing])
-
-    const startStopWatch = () => {
-        setIsGoing(true)
-    }
-    const pauseStopWatch = () => {
-        setIsGoing(false)
-    }
-    const stopStopWatch = () => {
-        setIsGoing(false)
-        setms(0)
-        sets(0)
-        setm(0)
-        seth(0)
-    }
+    const {h, m, isGoing, ms, s, pauseStopWatch, startStopWatch, resetStopWatch} = useStopWatch()
+    const isAnyTime = Boolean(ms || s || m || h)
 
     return (
-        <>
+        <StopWatchContainer>
             <Body1 style={{fontSize: '2.2rem'}} >
                 <FlexContainer>
                     <TimeContainer>{h}</TimeContainer>
@@ -79,16 +50,13 @@ export const StopWatch = React.memo(() => {
                 </FlexContainer>
             </Body1>
             {
-                isGoing ?
                 <FlexContainer>
-                    {/* <Button text='Старт' onClick={startStopWatch} /> */}
-                    <Button view='secondary' text='Пауза' onClick={pauseStopWatch} />
-                    <Button view='warning' text='Стоп' onClick={stopStopWatch} />
-                </FlexContainer> :
-                <Button view='success' text='Старт' onClick={startStopWatch} />
+                    {!isGoing && <StyledButton view='success' text='Старт' onClick={startStopWatch} />}
+                    {isGoing && <StyledButton view='secondary' text='Пауза' onClick={pauseStopWatch} />}
+                    {isAnyTime && <StyledButton view='critical' text='Стоп' onClick={resetStopWatch} />}
+                </FlexContainer>
             }
-            
-        </>
+        </StopWatchContainer>
     )
 }
 )
