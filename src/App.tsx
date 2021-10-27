@@ -1,5 +1,6 @@
 import { Container } from '@sberdevices/plasma-ui'
 import { AppHeader } from './components/AppHeader'
+import { RoundList } from './components/RoundList'
 import { StopWatch } from './components/StopWatch'
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
         <Container>
             <AppHeader />
             <StopWatch />
+            <RoundList />
         </Container>
     )
 }

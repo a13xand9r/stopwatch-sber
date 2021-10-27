@@ -4,7 +4,7 @@ import { useStore } from './useStore'
 
 
 export const useStopWatch = () => {
-    const [{ms, s, m, h, isGoing}, dispatch] = useStore()
+    const [{ms, s, m, h, isGoing, points}, dispatch] = useStore()
 
     const interval = useRef<NodeJS.Timeout>()
     const msRef = useRef(0)
@@ -52,6 +52,9 @@ export const useStopWatch = () => {
         dispatch(actions.stopStopWatch())
         dispatch(actions.clearTimer())
     }
+    const addRound = () => {
+        dispatch(actions.addPoint())
+    }
 
     return {
         ms,
@@ -61,6 +64,8 @@ export const useStopWatch = () => {
         startStopWatch,
         pauseStopWatch,
         resetStopWatch,
-        isGoing
+        isGoing,
+        addRound,
+        roundsNumber: points.length
     }
 }

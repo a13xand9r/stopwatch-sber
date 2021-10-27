@@ -1,4 +1,5 @@
 import { ActionsType, CharacterType, StateType } from '../types/types'
+import { addZeroBefore } from '../utils/utils'
 
 
 export const initialState = {
@@ -8,6 +9,7 @@ export const initialState = {
     m: 0,
     h: 0,
     isGoing: false,
+    points: [] as string[]
 }
 
 export const reducer = (state: StateType, action: ActionsType): StateType => {
@@ -27,7 +29,11 @@ export const reducer = (state: StateType, action: ActionsType): StateType => {
         case 'STOP_STOP_WATCH':
             return { ...state, isGoing: false }
         case 'CLEAR_TIMER':
-            return { ...state, ms: 0, s: 0, m: 0, h: 0 }
+            return { ...state, ms: 0, s: 0, m: 0, h: 0, points: [] }
+        case 'ADD_POINT':
+            let points = [...state.points]
+            if (points.length < 5) points.push(`${addZeroBefore(state.h)}:${addZeroBefore(state.m)}:${addZeroBefore(state.s)}:${addZeroBefore(state.ms)}`)
+            return { ...state, points }
         default: return state
     }
 }
@@ -41,4 +47,5 @@ export const actions = {
     clearTimer: () => ({ type: 'CLEAR_TIMER' } as const),
     startStopWatch: () => ({ type: 'START_STOP_WATCH' } as const),
     stopStopWatch: () => ({ type: 'STOP_STOP_WATCH' } as const),
+    addPoint: () => ({ type: 'ADD_POINT' } as const),
 }
