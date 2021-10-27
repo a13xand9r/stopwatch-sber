@@ -8,7 +8,7 @@ const PositionedCard = styled(Card)`
     bottom: 3rem;
     right: 2rem;
     @media (max-width: 650px) {
-        bottom: 8rem;
+        bottom: 9rem;
     }
 `
 
@@ -19,7 +19,6 @@ const MarginTextBox = styled(TextBox)`
 
 export const RoundList = React.memo(() => {
     const [state, _] = useStore()
-    console.log('Component2 render')
     return (
         <>
             {

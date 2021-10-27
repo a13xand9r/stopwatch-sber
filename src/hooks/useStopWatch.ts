@@ -11,30 +11,33 @@ export const useStopWatch = () => {
     const sRef = useRef(0)
     const mRef = useRef(0)
     const hRef = useRef(0)
+    const isGoingRef = useRef(false)
 
     msRef.current = ms
     sRef.current = s
     mRef.current = m
     hRef.current = h
+    isGoingRef.current = isGoing
 
-    if (ms === 100) console.log(ms)
     useEffect(() => {
         interval.current && clearInterval(interval.current)
         if (isGoing){
             interval.current = setInterval(() => {
-                if (msRef.current < 99) {
-                    dispatch(actions.setms(msRef.current + 1))
-                } else {
-                    dispatch(actions.setms(0))
-                    if (sRef.current < 59){
-                        dispatch(actions.sets(sRef.current + 1))
+                if (isGoingRef.current) {
+                    if (msRef.current < 99) {
+                        dispatch(actions.setms(msRef.current + 1))
                     } else {
-                        dispatch(actions.sets(0))
-                        if (mRef.current < 59){
-                            dispatch(actions.setm(mRef.current + 1))
+                        dispatch(actions.setms(0))
+                        if (sRef.current < 59) {
+                            dispatch(actions.sets(sRef.current + 1))
                         } else {
-                            dispatch(actions.setm(0))
-                            dispatch(actions.seth(hRef.current + 1))
+                            dispatch(actions.sets(0))
+                            if (mRef.current < 59) {
+                                dispatch(actions.setm(mRef.current + 1))
+                            } else {
+                                dispatch(actions.setm(0))
+                                dispatch(actions.seth(hRef.current + 1))
+                            }
                         }
                     }
                 }

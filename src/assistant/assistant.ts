@@ -20,7 +20,6 @@ export const initAssistant = (
   ) => {
   const assistant = initializeAssistant(getState)
   assistant.on('data', ({ smart_app_data, type, character }: any) => {
-    console.log('data type', type)
     if (smart_app_data) {
       console.log(smart_app_data)
       dispatch(smart_app_data)
