@@ -5,7 +5,7 @@ import { useStore } from '../hooks/useStore'
 
 const PositionedCard = styled(Card)`
     position: absolute;
-    bottom: 2rem;
+    bottom: 5rem;
     right: 2rem;
 `
 
@@ -19,7 +19,7 @@ export const RoundList = React.memo(() => {
     return (
         <>
             {
-                state.points.length &&
+                !!state.points.length &&
                 <PositionedCard>
                     <CardBody style={{ height: '100%', alignItems: 'center' }}>
                         <CardContent style={{ height: '100%' }} cover={false}>

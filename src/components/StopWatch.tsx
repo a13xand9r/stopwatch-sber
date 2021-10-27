@@ -23,7 +23,7 @@ const TimeContainer = styled.div`
 `
 
 const StopWatchContainer = styled.div`
-    width: 33rem;
+    width: 31rem;
     margin: 5rem auto;
     text-align: center;
     @media (max-width: 650px) {
@@ -32,9 +32,9 @@ const StopWatchContainer = styled.div`
 `
 
 const StyledButton = styled(Button)`
-    width: 10rem;
+    width: 9rem;
     @media (max-width: 650px) {
-        width: 8rem;
+        width: 6.5rem;
     }
 `
 
