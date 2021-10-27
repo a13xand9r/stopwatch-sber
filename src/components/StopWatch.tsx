@@ -1,7 +1,6 @@
 import { Body1, Button } from '@sberdevices/plasma-ui'
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { useAssistant } from '../hooks/useAssistant'
 import { useStopWatch } from '../hooks/useStopWatch'
 
 const FlexContainer = styled.div`
@@ -23,7 +22,7 @@ const TimeContainer = styled.div`
 `
 
 const StopWatchContainer = styled.div`
-    width: 500px;
+    width: 35rem;
     margin: 5rem auto;
     text-align: center;
     @media (max-width: 650px) {
