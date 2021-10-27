@@ -5,8 +5,11 @@ import { useStore } from '../hooks/useStore'
 
 const PositionedCard = styled(Card)`
     position: absolute;
-    bottom: 6.5rem;
+    bottom: 3rem;
     right: 2rem;
+    @media (max-width: 650px) {
+        bottom: 7.5rem;
+    }
 `
 
 const MarginTextBox = styled(TextBox)`

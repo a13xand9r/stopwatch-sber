@@ -27,14 +27,14 @@ const StopWatchContainer = styled.div`
     margin: 5rem auto;
     text-align: center;
     @media (max-width: 650px) {
-        width: 300px;
+        width: 325px;
     }
 `
 
 const StyledButton = styled(Button)`
     width: 9rem;
     @media (max-width: 650px) {
-        width: 6rem;
+        width: 6.4rem;
     }
 `
 
