@@ -8,12 +8,13 @@ const PositionedCard = styled(Card)`
     bottom: 3rem;
     right: 2rem;
     @media (max-width: 650px) {
-        bottom: 7.5rem;
+        bottom: 8rem;
     }
 `
 
 const MarginTextBox = styled(TextBox)`
-    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 `
 
 export const RoundList = React.memo(() => {

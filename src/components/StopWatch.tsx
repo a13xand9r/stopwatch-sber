@@ -55,7 +55,7 @@ export const StopWatch = React.memo(() => {
             </Body1>
             {
                 <FlexContainer>
-                    {!isGoing && <StyledButton view='success' text='Старт' onClick={startStopWatch} />}
+                    {!isGoing && <StyledButton view='accent' text='Старт' onClick={startStopWatch} />}
                     {isGoing && <StyledButton view='secondary' text='Пауза' onClick={pauseStopWatch} />}
                     {isAnyTime && <StyledButton view='secondary' text='Круг' onClick={addRound} disabled={roundsNumber >= 5} />}
                     {isAnyTime && <StyledButton view='critical' text='Стоп' onClick={resetStopWatch} />}
@@ -65,5 +65,3 @@ export const StopWatch = React.memo(() => {
     )
 }
 )
-
-// export const ComponentMemo = React.memo(Component)
