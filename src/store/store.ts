@@ -22,8 +22,10 @@ export const reducer = (state: StateType, action: ActionsType): StateType => {
             return { ...state, ms: action.payload }
         case 'SET_S':
             return { ...state, s: action.payload }
-        case 'SET_IS_GOING':
-            return { ...state, isGoing: action.payload }
+        case 'START_STOP_WATCH':
+            return { ...state, isGoing: true }
+        case 'STOP_STOP_WATCH':
+            return { ...state, isGoing: false }
         case 'CLEAR_TIMER':
             return { ...state, ms: 0, s: 0, m: 0, h: 0 }
         default: return state
@@ -37,5 +39,6 @@ export const actions = {
     sets: (payload: number) => ({ type: 'SET_S', payload } as const),
     seth: (payload: number) => ({ type: 'SET_H', payload } as const),
     clearTimer: () => ({ type: 'CLEAR_TIMER' } as const),
-    setIsGoing: (payload: boolean) => ({ type: 'SET_IS_GOING', payload } as const),
+    startStopWatch: () => ({ type: 'START_STOP_WATCH' } as const),
+    stopStopWatch: () => ({ type: 'STOP_STOP_WATCH' } as const),
 }

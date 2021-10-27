@@ -47,10 +47,10 @@ export const StopWatch = React.memo(() => {
         <StopWatchContainer>
             <Body1 style={{fontSize: '2.2rem'}} >
                 <FlexContainer>
-                    <TimeContainer>{h > 10 ? '' : '0'}{h}</TimeContainer>
-                    <TimeContainer>{m > 10 ? '' : '0'}{m}</TimeContainer>
-                    <TimeContainer>{s > 10 ? '' : '0'}{s}</TimeContainer>
-                    <TimeContainer>{ms > 10 ? '' : '0'}{ms}</TimeContainer>
+                    <TimeContainer>{h > 9 ? '' : '0'}{h}</TimeContainer>
+                    <TimeContainer>{m > 9 ? '' : '0'}{m}</TimeContainer>
+                    <TimeContainer>{s > 9 ? '' : '0'}{s}</TimeContainer>
+                    <TimeContainer>{ms > 9 ? '' : '0'}{ms}</TimeContainer>
                 </FlexContainer>
             </Body1>
             {

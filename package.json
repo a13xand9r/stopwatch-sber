@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "http://a13xand9r.github.io/stopwatch-sber",
   "dependencies": {
-    "@sberdevices/assistant-client": "^4.6.0",
+    "@sberdevices/assistant-client": "^4.9.1",
     "@sberdevices/plasma-icons": "^1.44.0",
     "@sberdevices/plasma-tokens": "^1.13.0",
     "@sberdevices/plasma-ui": "^1.51.0",
