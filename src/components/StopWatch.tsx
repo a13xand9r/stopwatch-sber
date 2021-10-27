@@ -16,7 +16,7 @@ const TimeContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #006eff4b;
+    background-color: #006eff2d;
     border-radius: 0.8rem;
     width: 4rem;
     height: 5rem;
@@ -34,7 +34,7 @@ const StopWatchContainer = styled.div`
 const StyledButton = styled(Button)`
     width: 9rem;
     @media (max-width: 650px) {
-        width: 6.5rem;
+        width: 6rem;
     }
 `
 

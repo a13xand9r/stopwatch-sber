@@ -5,7 +5,7 @@ import { useStore } from '../hooks/useStore'
 
 const PositionedCard = styled(Card)`
     position: absolute;
-    bottom: 5rem;
+    bottom: 6.5rem;
     right: 2rem;
 `
 
