@@ -6,6 +6,7 @@ import { useStore } from '../hooks/useStore'
 const PositionedCard = styled(Card)`
     max-width: max-content;
     margin-left: auto;
+    margin-top: -2rem;
 `
 
 const ListContainer = styled.div`
