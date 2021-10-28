@@ -24,10 +24,13 @@ const TimeContainer = styled.div`
 
 const StopWatchContainer = styled.div`
     width: 31rem;
-    margin: 5rem auto;
+    margin: 0 auto;
+    margin-top: 1rem;
     text-align: center;
     @media (max-width: 650px) {
         width: 325px;
+        margin: 0 auto;
+        margin-top: 4rem;
     }
 `
 

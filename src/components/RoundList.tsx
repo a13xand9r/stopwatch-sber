@@ -4,9 +4,21 @@ import styled from 'styled-components'
 import { useStore } from '../hooks/useStore'
 
 const PositionedCard = styled(Card)`
-    position: absolute;
+    /* position: relative;
     bottom: 3rem;
-    right: 2rem;
+    left: 30rem; */
+    max-width: max-content;
+    @media (max-width: 650px) {
+        /* bottom: 9rem; */
+    }
+`
+
+const ListContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-top: -2rem;
+    margin-bottom: 4rem;
     @media (max-width: 650px) {
         bottom: 9rem;
     }
@@ -23,19 +35,21 @@ export const RoundList = React.memo(() => {
         <>
             {
                 !!state.points.length &&
-                <PositionedCard>
-                    <CardBody style={{ height: '100%', alignItems: 'center' }}>
-                        <CardContent style={{ height: '100%' }} cover={false}>
-                            {
-                                state.points.map((point, i) => (
-                                    <MarginTextBox>
-                                        Круг {i + 1}: {point}
-                                    </MarginTextBox>
-                                ))
-                            }
-                        </CardContent>
-                    </CardBody>
-                </PositionedCard>
+                <ListContainer>
+                    <PositionedCard>
+                        <CardBody style={{ height: '100%', alignItems: 'center' }}>
+                            <CardContent style={{ height: '100%' }} cover={false}>
+                                {
+                                    state.points.map((point, i) => (
+                                        <MarginTextBox>
+                                            Круг {i + 1}: {point}
+                                        </MarginTextBox>
+                                    ))
+                                }
+                            </CardContent>
+                        </CardBody>
+                    </PositionedCard>
+                </ListContainer>
             }
         </>
     )
