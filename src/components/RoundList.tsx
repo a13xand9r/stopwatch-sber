@@ -7,18 +7,7 @@ const PositionedCard = styled(Card)`
     max-width: max-content;
     margin-left: auto;
     margin-top: -2rem;
-`
-
-const ListContainer = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-    margin-top: -2rem;
-    margin-bottom: 4rem;
-    @media (max-width: 650px) {
-        bottom: 9rem;
-    }
+    margin-bottom: 3rem;
 `
 
 const MarginTextBox = styled(TextBox)`
@@ -32,25 +21,21 @@ export const RoundList = React.memo(() => {
         <>
             {
                 !!state.points.length &&
-                // <ListContainer>
-                    <PositionedCard>
-                        <CardBody style={{ height: '100%', alignItems: 'center' }}>
-                            <CardContent style={{ height: '100%' }} cover={false}>
-                                {
-                                    state.points.map((point, i) => (
-                                        <MarginTextBox>
-                                            Круг {i + 1}: {point}
-                                        </MarginTextBox>
-                                    ))
-                                }
-                            </CardContent>
-                        </CardBody>
-                    </PositionedCard>
-                // </ListContainer>
+                <PositionedCard>
+                    <CardBody style={{ height: '100%', alignItems: 'center' }}>
+                        <CardContent style={{ height: '100%' }} cover={false}>
+                            {
+                                state.points.map((point, i) => (
+                                    <MarginTextBox>
+                                        Круг {i + 1}: {point}
+                                    </MarginTextBox>
+                                ))
+                            }
+                        </CardContent>
+                    </CardBody>
+                </PositionedCard>
             }
         </>
     )
 }
 )
-
-// export const ComponentMemo = React.memo(Component)
