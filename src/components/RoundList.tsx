@@ -4,18 +4,13 @@ import styled from 'styled-components'
 import { useStore } from '../hooks/useStore'
 
 const PositionedCard = styled(Card)`
-    /* position: relative;
-    bottom: 3rem;
-    left: 30rem; */
-    max-width: max-content;
-    @media (max-width: 650px) {
-        /* bottom: 9rem; */
-    }
+    /* max-width: max-content; */
 `
 
 const ListContainer = styled.div`
     width: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: end;
     margin-top: -2rem;
     margin-bottom: 4rem;
