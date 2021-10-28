@@ -7,7 +7,7 @@ const PositionedCard = styled(Card)`
     max-width: max-content;
     margin-left: auto;
     margin-top: -2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 `
 
 const MarginTextBox = styled(TextBox)`
