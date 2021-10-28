@@ -4,7 +4,8 @@ import styled from 'styled-components'
 import { useStore } from '../hooks/useStore'
 
 const PositionedCard = styled(Card)`
-    /* max-width: max-content; */
+    max-width: max-content;
+    margin-left: auto;
 `
 
 const ListContainer = styled.div`
@@ -30,7 +31,7 @@ export const RoundList = React.memo(() => {
         <>
             {
                 !!state.points.length &&
-                <ListContainer>
+                // <ListContainer>
                     <PositionedCard>
                         <CardBody style={{ height: '100%', alignItems: 'center' }}>
                             <CardContent style={{ height: '100%' }} cover={false}>
@@ -44,7 +45,7 @@ export const RoundList = React.memo(() => {
                             </CardContent>
                         </CardBody>
                     </PositionedCard>
-                </ListContainer>
+                // </ListContainer>
             }
         </>
     )
