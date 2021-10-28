@@ -8,10 +8,15 @@ const StyledHeader = styled(Header)`
 `
 
 export const AppHeader = () => {
-  return (
-    <StyledHeader
-      back={false}
-      title={'Мой секундомер'}
-    />
-  )
+    const closeApp = () => {
+        window.history.back()
+    }
+    return (
+        <StyledHeader
+            minimize={true}
+            onMinimizeClick={closeApp}
+            back={false}
+            title={'Мой секундомер'}
+        />
+    )
 }
