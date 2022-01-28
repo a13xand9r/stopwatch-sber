@@ -23,12 +23,12 @@ export const initAssistant = (
     if (smart_app_data) {
       console.log(smart_app_data)
       dispatch(smart_app_data)
-    }
-    if (smart_app_data.type === 'GET_CURRENT_TIME'){
+      if (smart_app_data.type === 'GET_CURRENT_TIME'){
         assistant.sendAction({
             type: 'CURRENT_TIME',
             payload: {}
         })
+    }
     }
     if (type === 'character') dispatch(actions.setCharacter(character.id))
   })
